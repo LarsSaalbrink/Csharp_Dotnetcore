@@ -1,0 +1,14 @@
+C:\Users\kaasv\Desktop\Work\Training\csharp_dotnet_core\hello_world\bin\Debug\net8.0\hello_world.exe
+C:\Users\kaasv\Desktop\Work\Training\csharp_dotnet_core\hello_world\bin\Debug\net8.0\hello_world.deps.json
+C:\Users\kaasv\Desktop\Work\Training\csharp_dotnet_core\hello_world\bin\Debug\net8.0\hello_world.runtimeconfig.json
+C:\Users\kaasv\Desktop\Work\Training\csharp_dotnet_core\hello_world\bin\Debug\net8.0\hello_world.dll
+C:\Users\kaasv\Desktop\Work\Training\csharp_dotnet_core\hello_world\bin\Debug\net8.0\hello_world.pdb
+C:\Users\kaasv\Desktop\Work\Training\csharp_dotnet_core\hello_world\obj\Debug\net8.0\hello_world.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kaasv\Desktop\Work\Training\csharp_dotnet_core\hello_world\obj\Debug\net8.0\hello_world.AssemblyInfoInputs.cache
+C:\Users\kaasv\Desktop\Work\Training\csharp_dotnet_core\hello_world\obj\Debug\net8.0\hello_world.AssemblyInfo.cs
+C:\Users\kaasv\Desktop\Work\Training\csharp_dotnet_core\hello_world\obj\Debug\net8.0\hello_world.csproj.CoreCompileInputs.cache
+C:\Users\kaasv\Desktop\Work\Training\csharp_dotnet_core\hello_world\obj\Debug\net8.0\hello_world.dll
+C:\Users\kaasv\Desktop\Work\Training\csharp_dotnet_core\hello_world\obj\Debug\net8.0\refint\hello_world.dll
+C:\Users\kaasv\Desktop\Work\Training\csharp_dotnet_core\hello_world\obj\Debug\net8.0\hello_world.pdb
+C:\Users\kaasv\Desktop\Work\Training\csharp_dotnet_core\hello_world\obj\Debug\net8.0\hello_world.genruntimeconfig.cache
+C:\Users\kaasv\Desktop\Work\Training\csharp_dotnet_core\hello_world\obj\Debug\net8.0\ref\hello_world.dll

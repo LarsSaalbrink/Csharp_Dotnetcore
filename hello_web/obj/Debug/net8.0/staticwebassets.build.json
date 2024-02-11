@@ -1,0 +1,77 @@
+{
+  "Version": 1,
+  "Hash": "17eTM7kJlTuwwrGAJfa5lcr6vL7i8Ch5JcLCZxRos1w=",
+  "Source": "hello_web",
+  "BasePath": "_content/hello_web",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "hello_web\\wwwroot",
+      "Source": "hello_web",
+      "ContentRoot": "C:\\Users\\kaasv\\Desktop\\Work\\Training\\csharp_dotnet_core\\hello_web\\wwwroot\\",
+      "BasePath": "_content/hello_web",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\kaasv\\Desktop\\Work\\Training\\csharp_dotnet_core\\hello_web\\wwwroot\\index.html",
+      "SourceId": "hello_web",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\kaasv\\Desktop\\Work\\Training\\csharp_dotnet_core\\hello_web\\wwwroot\\",
+      "BasePath": "_content/hello_web",
+      "RelativePath": "index.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\index.html"
+    },
+    {
+      "Identity": "C:\\Users\\kaasv\\Desktop\\Work\\Training\\csharp_dotnet_core\\hello_web\\wwwroot\\spinner.js",
+      "SourceId": "hello_web",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\kaasv\\Desktop\\Work\\Training\\csharp_dotnet_core\\hello_web\\wwwroot\\",
+      "BasePath": "_content/hello_web",
+      "RelativePath": "spinner.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\spinner.js"
+    },
+    {
+      "Identity": "C:\\Users\\kaasv\\Desktop\\Work\\Training\\csharp_dotnet_core\\hello_web\\wwwroot\\test",
+      "SourceId": "hello_web",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\kaasv\\Desktop\\Work\\Training\\csharp_dotnet_core\\hello_web\\wwwroot\\",
+      "BasePath": "_content/hello_web",
+      "RelativePath": "test",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\test"
+    }
+  ]
+}

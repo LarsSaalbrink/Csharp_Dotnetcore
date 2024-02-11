@@ -1,0 +1,33 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\kaasv\\Desktop\\Work\\Training\\csharp_dotnet_core\\hello_web\\wwwroot\\index.html",
+      "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "C:\\Users\\kaasv\\Desktop\\Work\\Training\\csharp_dotnet_core\\hello_web\\wwwroot\\spinner.js",
+      "PackagePath": "staticwebassets\\spinner.js"
+    },
+    {
+      "Id": "C:\\Users\\kaasv\\Desktop\\Work\\Training\\csharp_dotnet_core\\hello_web\\wwwroot\\test",
+      "PackagePath": "staticwebassets"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.hello_web.props",
+      "PackagePath": "build\\hello_web.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.hello_web.props",
+      "PackagePath": "buildMultiTargeting\\hello_web.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.hello_web.props",
+      "PackagePath": "buildTransitive\\hello_web.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.hello_web.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

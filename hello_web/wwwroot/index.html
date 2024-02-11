@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My Page</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+
+        @keyframes colorchange {
+            0% { background: red; }
+            14% { background: orange; }
+            28% { background: yellow; }
+            42% { background: lime; }
+            57% { background: blue; }
+            71% { background: indigo; }
+            85% { background: violet; }
+            100% { background: red; }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="spinner">
+        <h1 id="mytitle">Welcome to My Page</h1>
+        <p id="mytext">This is a simple HTML page.</p>
+        <button onclick="spin()">Spin</button>
+    </div>
+
+    <script src="/spinner.js"></script>
+</body>
+
+</html>
