@@ -3,7 +3,7 @@ using System.IO;
 
 namespace Web_fileSystem
 {
-    public class Web_file
+    public class Web_file : IWebItem
     {
         private string _name = "";
         private string _path = "";
@@ -85,9 +85,9 @@ namespace Web_fileSystem
 
         public void Delete()
         {
+            Console.WriteLine("Deleting file: '" + Name + "'");
             File.Delete(Path);
             _wasDeleted = true;
-            Console.WriteLine("Deleted file: '" + Name + "'");
         }
 
         private void CheckDeleted()

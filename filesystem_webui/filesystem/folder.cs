@@ -1,8 +1,3 @@
-// TODO:
-// Abstract class common to both Web_folder and Web_file containing read/write for name, path and size
-// Also virtual delete for subclasses to implement
-
-
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -10,7 +5,7 @@ using System.Linq;
 
 namespace Web_fileSystem
 {
-    public class Web_folder
+    public class Web_folder : IWebItem
     {
         private bool _wasDeleted = false;
         private string _name = "";
