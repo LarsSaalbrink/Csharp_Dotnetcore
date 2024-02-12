@@ -1,3 +1,8 @@
+// TODO:
+// Abstract class common to both Web_folder and Web_file containing read/write for name, path and size
+// Also virtual delete for subclasses to implement
+
+
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -11,6 +16,7 @@ namespace Web_fileSystem
         private string _name = "";
         private string _path = "";
         private List<Web_file>? _files = null;
+        private List<Web_folder>? _folders = null;
         private long _size = 0;
         private Web_folder? _parentFolder = null;
 
@@ -54,6 +60,19 @@ namespace Web_fileSystem
                 _files = value;
             }
         }
+        public List<Web_folder>? Folders
+        {
+            get
+            {
+                CheckDeleted();
+                return _folders;
+            }
+            private set
+            {
+                CheckDeleted();
+                _folders = value;
+            }
+        }
         public long Size
         {
             get
@@ -94,13 +113,14 @@ namespace Web_fileSystem
                 Path = folderPath;
 
                 // Limit access to within the fs folder for this project 
-                // #pragma warning disable CS8602  // If directoryInfo.Exists, this can never happen
                 ParentFolder = (directoryInfo?.Parent?.Name == root_name) ? ParentFolder = null : ParentFolder = new Web_folder(folderPath);
-                // #pragma warning restore CS8602
 
                 Files = Directory.GetFiles(folderPath)
                                  .Select(filePath => new Web_file(filePath, this))
                                  .ToList();
+                Folders = Directory.GetDirectories(folderPath)
+                                   .Select(folderPath => new Web_folder(folderPath))
+                                   .ToList();
 
                 Size = Files.Sum(file => file.Size);
             }
@@ -120,9 +140,44 @@ namespace Web_fileSystem
             Web_file? file = FindFile(name);
             if (file != null)
             {
-                file.Delete();       // Delete on local fs
+                file.Delete();        // Delete on local fs
                 Files?.Remove(file);  // Remove Files object from list of this folder
             }
+        }
+
+        private void DeleteAllFiles()
+        {
+            CheckDeleted();
+            if (Files != null)
+            {
+                foreach (var file in Files)
+                {
+                    file.Delete();
+                }
+                Files.Clear();
+            }
+        }
+
+        public void Delete()
+        {
+            CheckDeleted();
+
+            // Delete all files in the folder
+            DeleteAllFiles();
+
+            // Recurse into any subfolders and delete them
+            if (Folders != null)
+            {
+                foreach (var folder in Folders)
+                {
+                    folder.Delete();
+                }
+                Folders.Clear();
+            }
+
+            // Delete the folder itself
+            Directory.Delete(Path);
+            _wasDeleted = true;
         }
 
         private void CheckDeleted()
