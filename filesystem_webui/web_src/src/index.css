@@ -6,6 +6,17 @@
 
 }
 
+#ref_btn_box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5%;
+    width: 100%;
+    min-height: 25px;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
 #topbar {
     background-color: orange;
     border: 2px solid black;
@@ -19,4 +30,24 @@
     align-items: center;
     margin-bottom: 10px;
     font-size: 40px;
+}
+
+.file {
+    height: 100%;
+    width: 100%;
+    margin-bottom: 2px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.file_name {
+    width: 99%;
+    min-width: 250px;
+}
+
+.file_size {
+    width: 1%;
+    min-width: 50px;
+    display: flex;
+    justify-content: right;
 }

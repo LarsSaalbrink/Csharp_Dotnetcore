@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using System.Text.Json;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -19,31 +20,29 @@ app.MapGet("/read_fs", async (HttpContext context) =>
                                    // {
 
 
-    // Get directory list
-    var directoryPaths = Directory.GetDirectories(folderPath);
-    var directories = directoryPaths.Select(path => new Web_folder(path)).ToList();
-    Console.WriteLine("Directories:");
-    await context.Response.WriteAsync("\nDirectories:\n");
-    foreach (var directory in directories)
-    {
-        Console.WriteLine(directory.Name);
-        await context.Response.WriteAsync(directory.Name + "\n");
-    }
+    // // Get directory list
+    // var directoryPaths = Directory.GetDirectories(folderPath);
+    // var directories = directoryPaths.Select(path => new Web_folder(path)).ToList();
+    // Console.WriteLine("Directories:");
+    // await context.Response.WriteAsync("\nDirectories:\n");
+    // foreach (var directory in directories)
+    // {
+    //     Console.WriteLine(directory.Name);
+    //     await context.Response.WriteAsync(directory.Name + "\n");
+    // }
 
-    directories[0].Delete_file("apple.fruit");
+    // // directories[0].Delete_file("apple.fruit");
+    // directories[0].Delete();
 
 
-
-    // Get file list
+    // Respond with JSON of files
     var filePaths = Directory.GetFiles(folderPath);
     var files = filePaths.Select(path => new Web_file(path, null)).ToList();
-    Console.WriteLine("Files:");
-    await context.Response.WriteAsync("\nFiles:\n");
-    foreach (var file in files)
-    {
-        Console.WriteLine(file.Name);
-        await context.Response.WriteAsync(file.Name + "\n");
-    }
+
+    var jsonString = JsonSerializer.Serialize(files);
+
+    Console.WriteLine("Responding with JSON of files: " + jsonString);
+    await context.Response.WriteAsync(jsonString);
 
 
 
