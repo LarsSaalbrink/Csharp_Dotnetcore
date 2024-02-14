@@ -1,0 +1,6 @@
+{
+  "devDependencies": {
+    "glob": "^10.3.10",
+    "ncp": "^2.0.0"
+  }
+}
