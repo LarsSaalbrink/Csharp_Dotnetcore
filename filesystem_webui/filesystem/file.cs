@@ -8,6 +8,7 @@ namespace Web_fileSystem
         private string _name = "";
         private string _path = "";
         private long _size = 0;
+        private string _type = "file";
         private Web_folder? _parentFolder = null;
         private bool _wasDeleted = false;
 
@@ -50,6 +51,15 @@ namespace Web_fileSystem
             {
                 CheckDeleted();
                 _size = value;
+            }
+        }
+
+        public string type
+        {
+            get
+            {
+                CheckDeleted();
+                return _type;
             }
         }
 

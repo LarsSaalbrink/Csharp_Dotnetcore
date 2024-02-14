@@ -32,9 +32,19 @@
     font-size: 40px;
 }
 
-.file {
+.fs_wrap {
+    display: flex;
+    flex-direction: column;
     height: 100%;
     width: 100%;
+    min-width: 500px;
+    justify-content: left;
+}
+
+.file {
+    height: 100%;
+    width: 40%;
+    left: 0;
     margin-bottom: 2px;
     display: flex;
     justify-content: space-between;

@@ -15,43 +15,43 @@ app.UseStaticFiles();  // Use the static files middleware to serve web src from 
 app.MapGet("/", () => Results.File("index.html", "text/html"));
 app.MapGet("/read_fs", async (HttpContext context) =>
 {
-    var folderPath = "fs_content"; // Local folder containing the filesystem displayed
-                                   // try
-                                   // {
+    var folderName = "fs_content"; // Local folder containing the filesystem displayed
+    try
+    {
+        string fsRootFolderPath = Path.Combine(Directory.GetCurrentDirectory(), "fs_content");
+        var rootFolder = new Web_folder(fsRootFolderPath);
+
+        // Generate a list of files and folders representing the filesystem
+        var fileSystem = new List<IWebItem>();
+        var folders = new Stack<Web_folder>();  // Create a stack for folders to be processed
+        folders.Push(rootFolder);
+
+        while (folders.Count > 0)
+        {
+            var currentFolder = folders.Pop();
+            fileSystem.Add(currentFolder);
+
+            foreach (var file in currentFolder.Files)
+            {
+                fileSystem.Add(file);
+            }
+
+            foreach (var subfolder in currentFolder.Folders)
+            {
+                folders.Push(subfolder);
+            }
+        }
 
 
-    // // Get directory list
-    // var directoryPaths = Directory.GetDirectories(folderPath);
-    // var directories = directoryPaths.Select(path => new Web_folder(path)).ToList();
-    // Console.WriteLine("Directories:");
-    // await context.Response.WriteAsync("\nDirectories:\n");
-    // foreach (var directory in directories)
-    // {
-    //     Console.WriteLine(directory.Name);
-    //     await context.Response.WriteAsync(directory.Name + "\n");
-    // }
+        var jsonString = JsonSerializer.Serialize(fileSystem);
 
-    // // directories[0].Delete_file("apple.fruit");
-    // directories[0].Delete();
-
-
-    // Respond with JSON of files
-    var filePaths = Directory.GetFiles(folderPath);
-    var files = filePaths.Select(path => new Web_file(path, null)).ToList();
-
-    var jsonString = JsonSerializer.Serialize(files);
-
-    Console.WriteLine("Responding with JSON of files: " + jsonString);
-    await context.Response.WriteAsync(jsonString);
-
-
-
-
-    // }
-    // catch (Exception ex)
-    // {
-    //     await context.Response.WriteAsync($"An error occurred: {ex.Message}");
-    // }
+        Console.WriteLine("Responding with JSON of files: " + jsonString);
+        await context.Response.WriteAsync(jsonString);
+    }
+    catch (Exception ex)
+    {
+        await context.Response.WriteAsync($"An error occurred: {ex.Message}");
+    }
 });
 
 app.Run();

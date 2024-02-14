@@ -13,9 +13,10 @@ namespace Web_fileSystem
         private List<Web_file>? _files = null;
         private List<Web_folder>? _folders = null;
         private long _size = 0;
+        private string _type = "folder";
         private Web_folder? _parentFolder = null;
 
-        public const string root_name = "fs_content";  // Folder to use as root for the fs
+        public const string root_name = "filesystem_webui";  // Parent to root folder
         public string Name
         {
             get
@@ -23,7 +24,7 @@ namespace Web_fileSystem
                 CheckDeleted();
                 return _name;
             }
-            private set
+            set
             {
                 CheckDeleted();
                 _name = value;
@@ -81,6 +82,15 @@ namespace Web_fileSystem
                 _size = value;
             }
         }
+
+        public string type
+        {
+            get
+            {
+                CheckDeleted();
+                return _type;
+            }
+        }
         public Web_folder? ParentFolder
         {
             get
@@ -95,7 +105,7 @@ namespace Web_fileSystem
             }
         }
 
-        public Web_folder(string folderPath)
+        public Web_folder(string folderPath, Web_folder? parentFolder = null)
         {
             var directoryInfo = new DirectoryInfo(folderPath);
             if (!directoryInfo.Exists)
@@ -106,15 +116,13 @@ namespace Web_fileSystem
             {
                 Name = directoryInfo.Name;
                 Path = folderPath;
-
-                // Limit access to within the fs folder for this project 
-                ParentFolder = (directoryInfo?.Parent?.Name == root_name) ? ParentFolder = null : ParentFolder = new Web_folder(folderPath);
+                ParentFolder = parentFolder;
 
                 Files = Directory.GetFiles(folderPath)
                                  .Select(filePath => new Web_file(filePath, this))
                                  .ToList();
                 Folders = Directory.GetDirectories(folderPath)
-                                   .Select(folderPath => new Web_folder(folderPath))
+                                   .Select(folderPath => new Web_folder(folderPath, this))
                                    .ToList();
 
                 Size = Files.Sum(file => file.Size);
@@ -181,6 +189,21 @@ namespace Web_fileSystem
             {
                 throw new InvalidOperationException("Cannot access a deleted folder.");
             }
+        }
+
+        public List<object> GetContents()
+        {
+            CheckDeleted();
+            var items = new List<object>();
+            if (Folders != null)
+            {
+                items.AddRange(Folders);
+            }
+            if (Files != null)
+            {
+                items.AddRange(Files);
+            }
+            return items;
         }
     }
 }
