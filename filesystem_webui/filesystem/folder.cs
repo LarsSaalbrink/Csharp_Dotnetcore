@@ -125,7 +125,7 @@ namespace Web_fileSystem
                                    .Select(folderPath => new Web_folder(folderPath, this))
                                    .ToList();
 
-                Size = Files.Sum(file => file.Size);
+                Size = Files.Sum(file => file.Size) + Folders.Sum(folder => folder.Size);
             }
 
 
